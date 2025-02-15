@@ -12,7 +12,7 @@ def not_found(text: str):
 
 def type(text: str):
     if text in keywords:
-        print(f"{text} is a shell built in")
+        print(f"{text} is a shell builtin")
     # cho biet path den app thuc thi run if cmd (chuoi bdien tep) was called
     elif path := shutil.which(text):
         print(f"{text} is {path}")
