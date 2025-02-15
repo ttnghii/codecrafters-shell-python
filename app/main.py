@@ -14,7 +14,7 @@ def main():
             case "invalid":
                 print(f"{command}: not found")
             case default:
-                print(f"{command}: is a shell builtin")
+                print(f"{command} is a shell builtin")
 
 
 if __name__ == "__main__":
