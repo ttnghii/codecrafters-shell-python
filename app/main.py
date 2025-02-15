@@ -6,15 +6,13 @@ def main():
     while True:
         # Display prompt
         sys.stdout.write("$ ")
-        command = input()
-        args = command.split()
-
+        args = input().split()
         command = " ".join(args[1:])
-        match args[1]:
-            case "invalid":
-                print(f"{command}: not found")
-            case default:
-                print(f"{command} is a shell builtin")
+
+        if "invalid" in args:
+            print(f"{command}: command not found")
+        else:
+            print(f"{command} is a shell builtin")
 
 
 if __name__ == "__main__":
