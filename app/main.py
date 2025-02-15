@@ -6,10 +6,10 @@ def main():
     while True:
         # Display prompt
         sys.stdout.write("$ ")
-        command = input().lstrip("type ")
-        # args = command.split()
+        command = input()
+        args = command.split()
 
-        match command:
+        match args[0]:
             case "invalid":
                 print(f"{command}: not found")
             case default:
