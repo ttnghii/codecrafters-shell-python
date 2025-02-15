@@ -7,10 +7,12 @@ def main():
 
     # Wait for user input
     command = input().strip()
-
     # Check if the input is empty
-    if command: 
-        print(f"{command}: command not found\n")
+    if command:
+        print(f"{command}: command not found")
+
+    # Recursively call main to keep the shell running
+    main()
 
 
 if __name__ == "__main__":
