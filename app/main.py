@@ -10,8 +10,9 @@ def main():
         args = command.split()
         new_command = " ".join(args[1:])
 
-        if "invalid" and "type" in command:
-            print(f"{new_command}: not found")
+        if "invalid" in command:
+            if args[0] == "type":
+                print(f"{new_command}: not found")
         else:
             match args[0]:
                 case "type":
