@@ -9,7 +9,7 @@ def main():
         args = input().split()
         command = " ".join(args[1:])
 
-        if "invalid" in args:
+        if "invalid" in command:
             print(f"{command}: not found")
         else:
             print(f"{command} is a shell builtin")
