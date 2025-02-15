@@ -1,4 +1,23 @@
 import sys
+import shutil
+
+
+keywords = ["exit", "echo", "type"]
+
+def echo(text: str):
+    print(text)
+
+def not_found(text: str):
+    print(f"{text}: command not found")
+
+def type(text: str):
+    if text in keywords:
+        print(f"{text} is a shell built in")
+    # cho biet path den app thuc thi run if cmd (chuoi bdien tep) was called
+    elif path := shutil.which(text):
+        print(f"{text} is {path}")
+    else:
+        print(f"{text}: not found")
 
 
 def main():
@@ -7,20 +26,18 @@ def main():
         # Display prompt
         sys.stdout.write("$ ")
         command = input()
+        keyword, _, arguments = command.partition(" ")
 
         match command:
-            case "exit":
-                    sys.exit(0)
-            case command if command.startswith("echo"):
-                print(f"{command[len("echo") :]}")
-            case command if command.startswith("type invalid"):
-                print(f"{command[len('type ') :]}: not found")
-            case command if command.startswith("type valid"):
-                print(f"{command[len('type ') :]} is /local/bin/{command[len('type ') :]}")
-            case command if command.startswith("type"):
-                print(f"{command[len('type ') :]} is /bin/{command[len('type ') :]}")
-            case _:
-                print(f"{command}: command not found")
+            case "exit 0":
+                sys.exit(0)
+            case command if keyword not in keywords:
+                not_found(command)
+                continue
+            case command if keyword == "echo":
+                echo(arguments)
+            case command if keyword == "type":
+                type(arguments)
 
 
 if __name__ == "__main__":
