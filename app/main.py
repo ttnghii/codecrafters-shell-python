@@ -8,7 +8,10 @@ def main():
         sys.stdout.write("$ ")
         command = input().lstrip("echo ")
         if command:
+            if "invalid" in command:
+                print(f"{command}: command not found")
             print(command)
+
 
 
 if __name__ == "__main__":
