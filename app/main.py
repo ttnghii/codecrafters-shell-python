@@ -9,7 +9,8 @@ def main():
         command = input()
         args = command.split()
 
-        match args[0]:
+        command = " ".join(args[1:])
+        match args[1]:
             case "invalid":
                 print(f"{command}: not found")
             case default:
