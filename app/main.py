@@ -15,7 +15,7 @@ def main():
         new_command = " ".join(args[1:])
         match args[0]:
             case "type":
-                print(f"{new_command} is a builtin")
+                print(f"{new_command} is a shell builtin")
             case "echo":
                 print(new_command)
             case "exit":
