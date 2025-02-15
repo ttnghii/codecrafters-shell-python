@@ -13,6 +13,8 @@ def main():
         if "invalid" in command:
             if args[0] == "type":
                 print(f"{new_command}: not found")
+            else:
+                print(f"{command}: command not found")
         else:
             match args[0]:
                 case "type":
