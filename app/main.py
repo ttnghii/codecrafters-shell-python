@@ -6,12 +6,9 @@ def main():
     while True:
         # Display prompt
         sys.stdout.write("$ ")
-        command = input()
-        # Check for exit command
-        if command == "exit 0":
-            sys.exit(0)
+        command = input().strip("echo ")
         if command:
-            print(f"{command}: command not found") 
+            print(command)
 
 
 if __name__ == "__main__":
