@@ -8,11 +8,11 @@ def main():
         sys.stdout.write("$ ")
         command = input()
         args = command.split()
+        new_command = " ".join(args[1:])
 
         if "invalid" in command:
-            print(f"{" ".join(args[1:])}: not found")
+            print(f"{new_command}: not found")
         else:
-            new_command = " ".join(args[1:])
             match args[0]:
                 case "type":
                     print(f"{new_command} is a shell builtin")
