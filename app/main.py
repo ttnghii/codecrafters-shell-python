@@ -10,7 +10,7 @@ def main():
         command = " ".join(args[1:])
 
         if "invalid" in args:
-            print(f"{command}: command not found")
+            print(f"{command}: not found")
         else:
             print(f"{command} is a shell builtin")
 
