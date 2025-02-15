@@ -7,9 +7,10 @@ def main():
         # Display prompt
         sys.stdout.write("$ ")
         command = input().lstrip("echo ")
-        if command:
-            if "invalid" in command:
-                print(f"{command}: command not found")
+        
+        if "invalid" in command:
+            print(f"{command}: command not found")
+        else:   
             print(command)
 
 
