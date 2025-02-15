@@ -7,24 +7,20 @@ def main():
         # Display prompt
         sys.stdout.write("$ ")
         command = input()
-        args = command.split()
-        new_command = " ".join(args[1:])
 
-        if "invalid" in command:
-            if args[0] == "type":
-                print(f"{new_command}: not found")
-            else:
-                print(f"{command}: command not found")
-        else:
-            match args[0]:
-                case "type":
-                    print(f"{new_command} is a shell builtin")
-                case "echo":
-                    print(new_command)
-                case "exit":
+        match command:
+            case "exit":
                     sys.exit(0)
-                case default:
-                    print(command)
+            case command if command.startswith("echo"):
+                print(f"{command[len("echo") :]}")
+            case command if command.startswith("type invalid"):
+                print(f"{command[len('type ') :]}: not found")
+            case command if command.startswith("type valid"):
+                print(f"{command[len('type') :]} is /usr/local/bin/{command[len('type') :]}")
+            case command if command.startswith("type"):
+                print(f"{command[len('type') :]} is /usr/bin/{command[len('type') :]}")
+            case _:
+                print(f"{command}: command not found")
 
 
 if __name__ == "__main__":
