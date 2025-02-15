@@ -6,7 +6,7 @@ def main():
     while True:
         # Display prompt
         sys.stdout.write("$ ")
-        command = input().strip("echo ")
+        command = input().lstrip("echo ")
         if command:
             print(command)
 
